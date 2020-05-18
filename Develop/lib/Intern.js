@@ -16,7 +16,7 @@ class Intern extends Employee {
 
     //get intern school
     this.getSchool = () => {
-    
+      return this.school
     }
   } 
 }

@@ -16,7 +16,7 @@ class Manager extends Employee {
 
     //get GitHub profile
     this.getOfficeNumber = () => {
-
+      return this.officeNumber
     }
     
   }

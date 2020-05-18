@@ -8,17 +8,20 @@ class Employee {
 
     //build getId() from employee.test.js
     this.getName = () => {
-      console.log(this.name)
+      // console.log(this.name)
+      return this.name
     }  
 
     //build getId() from employee.test.js
     this.getId = () => {
-      console.log(this.id)
+      return this.id
+      // console.log(this.id)
     }
 
     //build getEmail() from employee.test.js
     this.getEmail = () => {
-      console.log(this.email)
+      return this.email
+      // console.log(this.email)
     }
 
     //build getRole() from employee.test.js
