@@ -8,17 +8,17 @@ class Employee {
 
     //build getId() from employee.test.js
     this.getName = () => {
-
+      console.log(this.name)
     }  
 
     //build getId() from employee.test.js
     this.getId = () => {
-
+      console.log(this.id)
     }
 
     //build getEmail() from employee.test.js
     this.getEmail = () => {
-
+      console.log(this.email)
     }
 
     //build getRole() from employee.test.js
@@ -28,9 +28,15 @@ class Employee {
   }
 }
 
+// set module.exports 
+module.exports = Employee
+
 //test of class constructor Employee
-//let employee1 = new Employee ('kina','45er','mail@mail.com', 'tester')
+//let employee1 = new Employee ('kina','45er','mail@mail.com')
 //console.log(employee1)
 
-//set module.exports 
-module.exports = Employee
+//testing functions above
+// employee1.getName()
+// employee1.getId()
+// employee1.getEmail()
+// employee1.getRole()
