@@ -9,8 +9,15 @@ class Engineer extends Employee {
     // new key for engineer
     this.github = github
 
-    //set role to true, so can only select engineer
-    //brin in api for github profile
+    //getRole() returns Engineer
+    this.getRole = () => {
+      return 'Engineer'
+    }
+
+    //get GitHub profile
+    this.getGithub = () => {
+      
+    }
   }
 }
 

@@ -1,17 +1,30 @@
 //build class called employee
 class Employee {
-  constructor (name, id, email, role){
+  constructor (name, id, email, role) {
     this.name = name
     this.id = id
     this.email = email
-    this.role= role
+    this.role = role
 
-  //use getName() from employee.test.js
-    //this.name = () =>{
-    //return name
-    //}
-  //use getId() from employee.test.js
-  //use getEmail() from employee.test.js
+    //build getId() from employee.test.js
+    this.getName = () => {
+
+    }  
+
+    //build getId() from employee.test.js
+    this.getId = () => {
+
+    }
+
+    //build getEmail() from employee.test.js
+    this.getEmail = () => {
+
+    }
+
+    //build getRole() from employee.test.js
+    this.getRole = () => {
+      return 'Employee'
+    }
   }
 }
 
