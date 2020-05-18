@@ -4,7 +4,7 @@
   "description": "OOP and testing for week 10 homework",
   "main": "app.js",
   "directories": {
-    "test": "test"
+    "test": "jest"
   },
   "scripts": {
     "test": "jest --verbose test/*"

@@ -13,7 +13,7 @@ class Manager extends Employee {
     this.getRole = () => {
       return 'Manager'
     }
-
+    
     //get GitHub profile
     this.getOfficeNumber = () => {
       return this.officeNumber
