@@ -4,18 +4,52 @@ const { writeFile, appendFile, readFile } = require('fs')
 const { prompt } = require('inquirer')
 //node pkg: helps with synchronicity 
 const { promisify } = require('util')
-// promises
+//promises
 const writeFileSync = promisify(writeFile)
 const appendFileSync = promisify(appendFile)
 
 
-
 //bring in constructors
-// const Employee = require('../lib/Employee.js')
-// const Engineer = require('../lib/Engineer.js')
-// const Intern = require('../lib/Intern.js')
-// const Manager = require('../lib/Manager.js')
+const Employee = require('../lib/Employee.js')
+const Engineer = require('../lib/Engineer.js')
+const Intern = require('../lib/Intern.js')
+const Manager = require('../lib/Manager.js')
 
+let getName = () => {
+  prompt({
+    type: 'input',
+    name: 'name',
+    message: 'Name:'
+  })
+  .then(name =>{
+    console.log(name)
+  })
+  .catch(err => console.log(err))
+}
+
+let getId = () => {
+  prompt({
+    type: 'input',
+    name: 'userId',
+    message: 'User ID:'
+  })
+  .then(userId => {
+    console.log(userId)
+  })
+  .catch(err => console.log(err))
+}
+
+let getEmail = () => {
+  prompt({
+    type: 'input',
+    name: 'email',
+    message: 'Email:'
+  })
+  .then(email => {
+    console.log(email)
+  })
+  .catch(err => console.log(err))
+}
 
 let getRole = () => {
   prompt({
@@ -43,7 +77,7 @@ let getRole = () => {
   .catch(err => console.log(err))
 }
 
-getRole()
+
 //takes in input from the employee
 // const employee = answers => {
 //   prompt ([

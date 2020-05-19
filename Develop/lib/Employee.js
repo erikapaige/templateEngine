@@ -1,10 +1,10 @@
 //build class called employee
 class Employee {
-  constructor (name, id, email, role) {
+  constructor (name, id, email) {
     this.name = name
     this.id = id
     this.email = email
-    this.role = role
+    // this.role = role
 
     //build getId() from employee.test.js
     this.getName = () => {
@@ -26,7 +26,7 @@ class Employee {
 
     //build getRole() from employee.test.js
     this.getRole = () => {
-      return 'Employee'
+      return "Employee"
     }
   }
 }

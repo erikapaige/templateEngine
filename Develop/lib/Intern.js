@@ -3,15 +3,15 @@ const Employee = require('../lib/Employee.js')
 
 //class constructor Intern
 class Intern extends Employee {
-  constructor (name, id, email, role, school) {
+  constructor (name, id, email, school) {
     //extend keys from employee
-    super (name, id, email, role)
+    super (name, id, email)
     //new value intern
     this.school = school 
 
     //getRole() returns Intern
     this.getRole = () => {
-      return 'Intern'
+      return "Intern"
     }
 
     //get intern school

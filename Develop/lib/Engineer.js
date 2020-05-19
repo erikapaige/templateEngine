@@ -3,15 +3,15 @@ const Employee = require('../lib/Employee.js')
 
 //class constructor for Engineer
 class Engineer extends Employee {
-  constructor (name, id, email, role, github) {
+  constructor (name, id, email, github) {
     // extend keys from employee
-    super (name, id, email, role)
+    super (name, id, email)
     // new key for engineer
     this.github = github
 
     //getRole() returns Engineer
     this.getRole = () => {
-      return 'Engineer'
+      return "Engineer"
     }
 
     //get GitHub profile
