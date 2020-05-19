@@ -27,23 +27,23 @@ let managerQuestions = () =>{
   prompt([
     {
       type: 'input',
-      name: 'managerName',
+      name: 'name',
       message: 'Name:'
     },
     {
       type: 'input',
-      name: 'managerPhone',
-      message: 'Office Phone Number:'
+      name: 'id',
+      message: 'Employee ID:'
     },
     {
       type: 'input',
-      name: 'managerEmail',
+      name: 'email',
       message: 'Email Address:'
     },
     {
       type: 'input',
-      name: 'managerId',
-      message: 'Employee ID:'
+      name: 'officeNumber',
+      message: 'Office Phone Number:'
     }
   ])
   .then()
@@ -74,7 +74,7 @@ const newEmployee = () => {
           internQuestions()
           break
         case 'Complete':
-          htmlRender(employeeArray)
+          htmlRender(employee)
           break  
       }
     })  
@@ -88,59 +88,58 @@ let engineerQuestions = () => {
   prompt([
     {
       type: 'input',
-      name: 'engineerName',
+      name: 'name',
       message: 'Name:'
     },
     {
       type: 'input',
-      name: 'engineerEmail',
-      message: 'Email Address:'
-    },
-    {
-      type: 'input',
-      name: 'engineerId',
+      name: 'id',
       message: 'Employee ID:'
     },
     {
       type: 'input',
-      name: 'engineerGithub',
+      name: 'email',
+      message: 'Email Address:'
+    },
+    {
+      type: 'input',
+      name: 'github',
       message: 'Github Username:'
     }
   ])
-    .then(({ engineerName, engineerEmail, engineerId, engineerGithub }) =>{
-    let engineer = new Engineer(engineerName, engineerEmail, engineerId, engineerGithub)
+    .then(({ name, id, email, github }) =>{
+    let engineer = new Engineer(name, id, email, github)
     employee.push(engineer)
     })
     .catch (err => console.log(err))
 }
 
-//intern question 
+//intern question
 let internQuestions = () => {
   prompt([
     {
       type: 'input',
-      name: 'internName',
+      name: 'name',
       message: 'Name:'
     },
     {
       type: 'input',
-      name: 'internEmail',
-      message: 'Email Address:'
-    },
-    {
-      type: 'input',
-      name: 'internId',
+      name: 'id',
       message: 'Employee ID:'
     },
     {
       type: 'input',
-      name: 'internSchool',
+      name: 'email',
+      message: 'Email Address:'
+    },
+    {
+      type: 'input',
+      name: 'school',
       message: 'Name of School:'
     }
   ])
-  //consologging malformed arrow and vars aren't defined
-    .then(({ internName, internEmail, internId, internSchool }) => {
-    let intern = new Intern(internName, internEmail, internId, internSchool)
+    .then(({ name, email, id, school }) => {
+    let intern = new Intern(name, email, id, school)
     employee.push(intern)
     })
     .catch(err => console.log(err))

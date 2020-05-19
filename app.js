@@ -8,10 +8,10 @@ const writeFileSync = promisify(writeFile)
 const appendFileSync = promisify(appendFile)
 
 //bring in constructors
-const Employee = require('../lib/Employee.js')
-const Engineer = require('../lib/Engineer.js')
-const Intern = require('../lib/Intern.js')
-const Manager = require('../lib/Manager.js')
+const Employee = require('./Develop/lib/Employee.js')
+const Engineer = require('./Develop/lib/Engineer.js')
+const Intern = require('./Develop/lib/Intern.js')
+const Manager = require('./Develop/lib/Manager.js')
 
 
 // prompt the user  build an engineering team 
