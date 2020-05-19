@@ -68,27 +68,3 @@ let getRole = () => {
     })
     .catch(err => console.log(err))
 }
-
-
-//switchcase the questions?
-//  .then(({ position }) => {
-//    switch (position) {
-//      case 'Manager':
-//        getOfficeNumber()
-//        break
-//      case 'Engineer':
-//        getGithub()
-//        break
-//      case 'Employee':
-//        break
-//      case 'Intern':
-//        getSchool()
-//        break
-//    }
-//  })
-//     .catch(err => console.log(err))
-// }
-//prompt for name, if true enter data, if false alert 'must enter name'
-//prompt for position, if manager ask for office number, else engineer github, intern school, else employee,nothing
-//create a function that if manager is chosen it asks for their number
-//create a function that depending on job choice the graphic changes
