@@ -15,37 +15,38 @@ const Manager = require('../lib/Manager.js')
 
 
 // prompt the user  build an engineering team 
-console.log('This is a template to generate information about your team. Use it to create your Engineering')
+console.log('This is a template to generate information about your team. Use it to create your engineering team.')
 
-// ask questions about roles in company
-
-
+// questions to ask about roles in company
 //manager questions
-let managerQuestions = [
-  {
-    type: 'input',
-    name: 'employeeName',
-    message: 'Name:'
-  },
-  {
-    type: 'input',
-    name: 'managerPhone',
-    message: 'Office Phone Number:'
-  },
-  {
-    type: 'input',
-    name: 'employeeEmail',
-    message: 'Email Address:'
-  },
-  {
-    type: 'input',
-    name: 'employeeId',
-    message: 'Employee ID:'
-  }
-]
+let managerQuestions = () =>{
+  prompt([
+    {
+      type: 'input',
+      name: 'employeeName',
+      message: 'Name:'
+    },
+    {
+      type: 'input',
+      name: 'managerPhone',
+      message: 'Office Phone Number:'
+    },
+    {
+      type: 'input',
+      name: 'employeeEmail',
+      message: 'Email Address:'
+    },
+    {
+      type: 'input',
+      name: 'employeeId',
+      message: 'Employee ID:'
+    }
+  ])
+}  
 
 //engineer questions
-let engineerQuestions = [
+let engineerQuestions = () => {
+  prompt([
   {
     type: 'input',
     name: 'employeeName',
@@ -66,53 +67,70 @@ let engineerQuestions = [
     name: 'engineerGithub',
     message: 'Github Username:'
   }
-]
+  ])
+}
 
 //intern question
-let internQuestion = [ 
-  {
-    type: 'input',
-    name: 'employeeName',
-    message: 'Name:'
-  },
-  {
-    type: 'input',
-    name: 'employeeEmail',
-    message: 'Email Address:'
-  },
-  {
-    type: 'input',
-    name: 'employeeId',
-    message: 'Employee ID:'
-  },
-  {
-    type: 'input',
-    name: 'internSchool',
-    message: 'Name of School:'
-  }
-]
+let internQuestions = () => { 
+  prompt([
+    {
+      type: 'input',
+      name: 'employeeName',
+      message: 'Name:'
+    },
+    {
+      type: 'input',
+      name: 'employeeEmail',
+      message: 'Email Address:'
+    },
+    {
+      type: 'input',
+      name: 'employeeId',
+      message: 'Employee ID:'
+    },
+    {
+      type: 'input',
+      name: 'internSchool',
+      message: 'Name of School:'
+    }
+  ])
+  .then(data =>{
+    console.log(data)
+  })
+  .catch(err => console.log(err))
+}
 
 //switch case of different employee scenarios
 
-function newEmployee () {
+const newEmployee = () => {
   prompt([
     {
     type: 'list',
     name: 'position',
-    message: `Employee's Position:`,
+    message: 'Employee Position:',
     choices: ['Manager', 'Engineer', 'Employee', 'Intern']
-    }])
+    }
+  ])
+    //check to make sure data working
+    // console.log(data)
     .then(employee => {
-      switch (employee.team)
+      switch (employee.team) {
         case 'Manager':
+          managerQuestions()
           break
         case 'Engineer':
+          engineerQuestions()
           break
         case 'Intern':
-          break   
-    }
-
-      .catch(err => console.log(err))
+          internQuestions()
+          break
+      writeFileSync('team.html', 'utf8')   
+      }
+    })  
+    .catch(err => console.log(err))
 }
 
+newEmployee()
+
+// function newEmployee()
   //have option to exit
