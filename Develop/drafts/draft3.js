@@ -15,7 +15,7 @@ const Manager = require('../lib/Manager.js')
 
 //takes in input from the employee
 const employee = () => [
-
+    {
       type: 'input',
       name: 'employeeName',
       message: 'Name:'
