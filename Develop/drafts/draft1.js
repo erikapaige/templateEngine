@@ -56,8 +56,6 @@ let schoolQuestion = {
   message: 'Name of your school:'
 }
 
-prompt([nameQuestion, roleQuestion, emailQuestion, idQuestion])
-.then
 
 //switchcase the questions?
 //  .then(({ position }) => {

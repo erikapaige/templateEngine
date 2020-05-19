@@ -13,6 +13,9 @@ const Engineer = require('../lib/Engineer.js')
 const Intern = require('../lib/Intern.js')
 const Manager = require('../lib/Manager.js')
 
+console.log('This is a template to generate information about your team. Use it to create your Engineering')
+
+//switch case of different employee scenarios
 //takes in input from the employee
 const employee = () => [
     {

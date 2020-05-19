@@ -18,18 +18,19 @@ const Manager = require('../lib/Manager.js')
 console.log('This is a template to generate information about your team. Use it to create your Engineering')
 
 // ask questions about roles in company
-//employee questions
-let employeeQuestions = [
+
+
+//manager questions
+let managerQuestions = [
   {
     type: 'input',
     name: 'employeeName',
     message: 'Name:'
   },
   {
-    type: 'list',
-    name: 'position',
-    message: `Employee's Position:`,
-    choices: ['Manager', 'Engineer', 'Employee', 'Intern']
+    type: 'input',
+    name: 'managerPhone',
+    message: 'Office Phone Number:'
   },
   {
     type: 'input',
@@ -43,22 +44,23 @@ let employeeQuestions = [
   }
 ]
 
-//manager questions
-let managerQuestions = [
-  {
-    type: 'input',
-    name: 'managerPhone',
-    message: 'Office Phone Number:'
-  }
-  // {
-  //   type: 'list',
-  //   name: 'optionToAdd',
-  //   message: 'Would you like to add another employee?'
-  //   choices: ['Yes', 'No']
-  // }
-]
 //engineer questions
 let engineerQuestions = [
+  {
+    type: 'input',
+    name: 'employeeName',
+    message: 'Name:'
+  },
+  {
+    type: 'input',
+    name: 'employeeEmail',
+    message: 'Email Address:'
+  },
+  {
+    type: 'input',
+    name: 'employeeId',
+    message: 'Employee ID:'
+  },
   {
     type: 'input',
     name: 'engineerGithub',
@@ -70,24 +72,46 @@ let engineerQuestions = [
 let internQuestion = [ 
   {
     type: 'input',
+    name: 'employeeName',
+    message: 'Name:'
+  },
+  {
+    type: 'input',
+    name: 'employeeEmail',
+    message: 'Email Address:'
+  },
+  {
+    type: 'input',
+    name: 'employeeId',
+    message: 'Employee ID:'
+  },
+  {
+    type: 'input',
     name: 'internSchool',
     message: 'Name of School:'
   }
 ]
 
-init()
-
 //switch case of different employee scenarios
 
-function init () {
-  prompt(employeeQuestions)
-    .then (response => {
-      //test for employeeQuestions
-      // console.log(response)
+function newEmployee () {
+  prompt([
+    {
+    type: 'list',
+    name: 'position',
+    message: `Employee's Position:`,
+    choices: ['Manager', 'Engineer', 'Employee', 'Intern']
+    }])
+    .then(employee => {
+      switch (employee.team)
+        case 'Manager':
+          break
+        case 'Engineer':
+          break
+        case 'Intern':
+          break   
+    }
 
-      // let response 
-
-    })
       .catch(err => console.log(err))
 }
 
