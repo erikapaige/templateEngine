@@ -44,34 +44,66 @@ let managerQuestions = () =>{
   ])
 }  
 
+
+//switch case of different employee scenarios
+const newEmployee = () => {
+  prompt([
+    {
+    type: 'list',
+    name: 'position',
+    message: 'Employee Position:',
+    choices: ['Manager', 'Engineer', 'Employee', 'Intern']
+    }
+  ])
+    .then(employee => {
+      //check to make sure data working
+      // console.log(employee)
+      switch (employee.team) {
+        case 'Manager':
+          managerQuestions()
+          break
+        case 'Engineer':
+          engineerQuestions()
+          break
+        case 'Intern':
+          internQuestions()
+          break
+      writeFileSync('team.html', 'utf8')   
+      }
+    })  
+    .catch(err => console.log(err))
+}
+
+newEmployee()
+
 //engineer questions
 let engineerQuestions = () => {
   prompt([
-  {
-    type: 'input',
-    name: 'employeeName',
-    message: 'Name:'
-  },
-  {
-    type: 'input',
-    name: 'employeeEmail',
-    message: 'Email Address:'
-  },
-  {
-    type: 'input',
-    name: 'employeeId',
-    message: 'Employee ID:'
-  },
-  {
-    type: 'input',
-    name: 'engineerGithub',
-    message: 'Github Username:'
-  }
+    {
+      type: 'input',
+      name: 'employeeName',
+      message: 'Name:'
+    },
+    {
+      type: 'input',
+      name: 'employeeEmail',
+      message: 'Email Address:'
+    },
+    {
+      type: 'input',
+      name: 'employeeId',
+      message: 'Employee ID:'
+    },
+    {
+      type: 'input',
+      name: 'engineerGithub',
+      message: 'Github Username:'
+    }
   ])
 }
 
 //intern question
-let internQuestions = () => { 
+let internQuestions = () => {
   prompt([
     {
       type: 'input',
@@ -94,43 +126,11 @@ let internQuestions = () => {
       message: 'Name of School:'
     }
   ])
-  .then(data =>{
-    console.log(data)
-  })
-  .catch(err => console.log(err))
-}
-
-//switch case of different employee scenarios
-
-const newEmployee = () => {
-  prompt([
-    {
-    type: 'list',
-    name: 'position',
-    message: 'Employee Position:',
-    choices: ['Manager', 'Engineer', 'Employee', 'Intern']
-    }
-  ])
-    //check to make sure data working
-    // console.log(data)
-    .then(employee => {
-      switch (employee.team) {
-        case 'Manager':
-          managerQuestions()
-          break
-        case 'Engineer':
-          engineerQuestions()
-          break
-        case 'Intern':
-          internQuestions()
-          break
-      writeFileSync('team.html', 'utf8')   
-      }
-    })  
+    .then(data => {
+      console.log(data)
+    })
     .catch(err => console.log(err))
 }
-
-newEmployee()
 
 // function newEmployee()
   //have option to exit

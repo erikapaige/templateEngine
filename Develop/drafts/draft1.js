@@ -55,6 +55,8 @@ let schoolQuestion = {
   name: 'employeeSchool',
   message: 'Name of your school:'
 }
+console.log(schoolQuestion)
+
 
 
 //switchcase the questions?

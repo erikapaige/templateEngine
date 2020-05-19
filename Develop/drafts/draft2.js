@@ -68,3 +68,5 @@ let getRole = () => {
     })
     .catch(err => console.log(err))
 }
+
+getRole()
