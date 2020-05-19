@@ -3,9 +3,12 @@ const { writeFile, appendFile, readFile } = require('fs')
 //npm package 'inquirer'
 const { prompt } = require('inquirer')
 const { promisify } = require('util')
+//npm package html-render
+// const htmlRender = require('html-render')
 
 const writeFileSync = promisify(writeFile)
 const appendFileSync = promisify(appendFile)
+
 
 //bring in constructors
 const Employee = require('./Develop/lib/Employee.js')
@@ -13,6 +16,7 @@ const Engineer = require('./Develop/lib/Engineer.js')
 const Intern = require('./Develop/lib/Intern.js')
 const Manager = require('./Develop/lib/Manager.js')
 
+let employee = []
 
 // prompt the user  build an engineering team 
 console.log('This is a template to generate information about your team. Use it to create your engineering team.')
@@ -23,25 +27,31 @@ let managerQuestions = () => {
   prompt([
     {
       type: 'input',
-      name: 'employeeName',
+      name: 'name',
       message: 'Name:'
     },
     {
       type: 'input',
-      name: 'managerPhone',
-      message: 'Office Phone Number:'
+      name: 'id',
+      message: 'Employee ID:'
     },
     {
       type: 'input',
-      name: 'employeeEmail',
+      name: 'email',
       message: 'Email Address:'
     },
     {
       type: 'input',
-      name: 'employeeId',
-      message: 'Employee ID:'
+      name: 'officeNumber',
+      message: 'Office Phone Number:'
     }
   ])
+    .then(({ name, id, email, officeNumber }) => {
+      let manager = new Manager(name, id, email, officeNumber)
+      console.log(manager)
+      employee.push(manager)
+    })
+    .catch(err => console.log(err))
 }
 
 
@@ -55,10 +65,10 @@ const newEmployee = () => {
       choices: ['Manager', 'Engineer', 'Employee', 'Intern']
     }
   ])
-    .then(employee => {
+    .then(({ position }) => {
       //check to make sure data working
-      // console.log(employee)
-      switch (employee.team) {
+      // console.log(position)
+      switch (position) {
         case 'Manager':
           managerQuestions()
           break
@@ -68,7 +78,9 @@ const newEmployee = () => {
         case 'Intern':
           internQuestions()
           break
-          writeFileSync('team.html', 'utf8')
+        case 'Complete':
+
+          break
       }
     })
     .catch(err => console.log(err))
@@ -81,25 +93,30 @@ let engineerQuestions = () => {
   prompt([
     {
       type: 'input',
-      name: 'employeeName',
+      name: 'name',
       message: 'Name:'
     },
     {
       type: 'input',
-      name: 'employeeEmail',
-      message: 'Email Address:'
-    },
-    {
-      type: 'input',
-      name: 'employeeId',
+      name: 'id',
       message: 'Employee ID:'
     },
     {
       type: 'input',
-      name: 'engineerGithub',
+      name: 'email',
+      message: 'Email Address:'
+    },
+    {
+      type: 'input',
+      name: 'github',
       message: 'Github Username:'
     }
   ])
+    .then(({ name, id, email, github }) => {
+      let engineer = new Engineer(name, id, email, github)
+      employee.push(engineer)
+    })
+    .catch(err => console.log(err))
 }
 
 //intern question
@@ -107,27 +124,29 @@ let internQuestions = () => {
   prompt([
     {
       type: 'input',
-      name: 'employeeName',
+      name: 'name',
       message: 'Name:'
     },
     {
       type: 'input',
-      name: 'employeeEmail',
-      message: 'Email Address:'
-    },
-    {
-      type: 'input',
-      name: 'employeeId',
+      name: 'id',
       message: 'Employee ID:'
     },
     {
       type: 'input',
-      name: 'internSchool',
+      name: 'email',
+      message: 'Email Address:'
+    },
+    {
+      type: 'input',
+      name: 'school',
       message: 'Name of School:'
     }
   ])
-    .then(data => {
-      console.log(data)
+    .then(({ name, email, id, school }) => {
+      let intern = new Intern(name, email, id, school)
+      employee.push(intern)
     })
     .catch(err => console.log(err))
 }
+
