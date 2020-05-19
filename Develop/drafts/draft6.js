@@ -4,7 +4,7 @@ const { writeFile, appendFile, readFile } = require('fs')
 const { prompt } = require('inquirer')
 const { promisify } = require('util')
 //npm package html-render
-const htmlRender = require('html-render')
+// const htmlRender = require('html-render')
 
 const writeFileSync = promisify(writeFile)
 const appendFileSync = promisify(appendFile)
@@ -46,7 +46,11 @@ let managerQuestions = () =>{
       message: 'Office Phone Number:'
     }
   ])
-  .then()
+    .then(({ name, id, email, officeNumber }) => {
+      let engineer = new Engineer(name, id, email, officeNumber)
+      employee.push(manager)
+    })
+    .catch(err => console.log(err))
 }  
 
 
@@ -74,7 +78,7 @@ const newEmployee = () => {
           internQuestions()
           break
         case 'Complete':
-          htmlRender(employee)
+          // htmlRender(employee)
           break  
       }
     })  
