@@ -8,7 +8,7 @@ const { promisify } = require('util')
 
 const writeFileSync = promisify(writeFile)
 const appendFileSync = promisify(appendFile)
-const readFilySync = promisify(readFile)
+const readFileSync = promisify(readFile)
 
 
 //bring in class constructors from 'lib' file
@@ -91,7 +91,7 @@ const newEmployee = () => {
       type: 'list',
       name: 'position',
       message: 'Employee Position:',
-      choices: ['Manager', 'Engineer', 'Employee', 'Intern']
+      choices: ['Manager', 'Engineer', 'Intern']
     }
   ])
     .then(({ position }) => {
@@ -108,7 +108,7 @@ const newEmployee = () => {
           internQuestions()
           break
         case 'Complete':
-          htmlTop()
+          bottomHTML()
           break
       }
     })
@@ -181,6 +181,29 @@ let internQuestions = () => {
     .catch(err => console.log(err))
 }
 
+//option to add another employee
+let addAnotherEmployee = () => {
+  prompt([
+    {
+      type: 'list',
+      name: 'add',
+      message: 'Would you like to add another employee?',
+      choices: ['Yes', 'No']
+    }
+  ])
+    .then(({ add }) => {
+      switch(add){
+        case 'Yes':
+          newEmployee()
+          break
+        case 'No':
+          bottomHTML()
+          break
+      }
+    })
+    .catch (err => console.log(err))
+}
+
 //renders a new card based on manager's responses
 let createManager = (responses) => {
   appendFileSync('./output/team.html', `
@@ -221,6 +244,7 @@ let createManager = (responses) => {
     if (err) { console.log(err) }
     } 
   )
+  addAnotherEmployee()
 }
 
 //renders a new card based on engineer's responses
@@ -263,6 +287,7 @@ let createEngineer = (responses) => {
     if (err) { console.log(err) }
   }
   )
+  addAnotherEmployee()
 }
 
 //renders a new card based on intern's responses
@@ -306,4 +331,28 @@ let createIntern = (responses) => {
     if (err) { console.log(err) }
   }
   )
+  addAnotherEmployee()
 }
+
+let bottomHTML = (responses) => {
+    appendFileSync('./output/team.html', `
+    <!-- closing div for row  -->
+        </div>
+        <!-- closing <div> for container -->
+      </div>
+    </body>
+    <!-- Linked Javascript libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+      integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    </html>
+    `, err => {
+    if (err) { console.log(err) }
+    }
+  )
+}
+
