@@ -25,6 +25,7 @@ After each new employee is added a "team card" will be generated and displayed o
 
 ## Demo
 ![Team Template Engine Demo] (templateEngineGenerator.gif)
+Link to view video of the demo here: https://www.dropbox.com/s/3vhhfeztjcmzfba/teamGeneratorVideo-Demo.mov?dl=0
 <br>
 <br>
 <br>
