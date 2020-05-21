@@ -208,7 +208,7 @@ let addAnotherEmployee = () => {
 let createManager = (responses) => {
   appendFileSync('./output/team.html', `
     <div class="column">
-          <div class="card" style="width: 18rem; box-shadow: 2.5px 5px #A0A0A0;">
+          <div class="card" style="width: 18rem; box-shadow: 2.5px 5px #A0A0A0; margin:20px;">
             <div class="card-header" style="background-color: #4C6D61; color: #F8F8F8	; font-weight: bold;">
               <div class="row" style="padding-left: 15px;">
                 ${responses.name}
@@ -251,7 +251,7 @@ let createManager = (responses) => {
 let createEngineer = (responses) => {
   appendFileSync('./output/team.html', `
     <div class="column">
-        <div class="card" style="width: 18rem; box-shadow: 2.5px 5px #A0A0A0;">
+        <div class="card" style="width: 18rem; box-shadow: 2.5px 5px #A0A0A0;margin:20px;">
           <div class="card-header" style="background-color: #6D8A6E; color: #F8F8F8	; font-weight: bold;">
             <div class="row" style="padding-left: 15px;">
               ${responses.name}
@@ -294,7 +294,7 @@ let createEngineer = (responses) => {
 let createIntern = (responses) => {
   appendFileSync('./output/team.html', `
     <div class="column">
-        <div class="card" style="width: 18rem; box-shadow: 2.5px 5px #A0A0A0;">
+        <div class="card" style="width: 18rem; box-shadow: 2.5px 5px #A0A0A0;margin:20px;">
           <div class="card-header" style="background-color: #BDD8B3; color: #F8F8F8	; font-weight: bold;">
             <div class="row" style="padding-left: 15px;">
               ${responses.name}
